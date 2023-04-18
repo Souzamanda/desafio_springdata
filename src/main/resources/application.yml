@@ -1,0 +1,11 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/academia?useTimezone=true&serverTimezone=UTC&useLegacyDate
+    username: root
+    password: '@Amanda1710'
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
