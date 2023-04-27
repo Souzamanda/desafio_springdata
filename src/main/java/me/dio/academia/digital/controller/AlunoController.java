@@ -7,6 +7,7 @@ import me.dio.academia.digital.service.impl.AlunoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,12 +17,12 @@ public class AlunoController {
     private AlunoServiceImpl service;
 
     @GetMapping
-    public List<Aluno> getAll() {
-        return service.getAll();
+    public List<Aluno> getAll(@RequestParam(value = "dataDeNascimento", required = false) String dataDeNascimento) {
+        return service.getAll(dataDeNascimento);
     }
 
     @PostMapping
-    public Aluno create(@RequestBody AlunoForm form) {
+    public Aluno create(@Valid @RequestBody AlunoForm form) {
         return service.create(form);
     }
 
